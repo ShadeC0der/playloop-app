@@ -39,7 +39,9 @@ Docs: https://docs.expo.dev/eas/index.md
 
 ## Conventions
 
-- Write everything in the repo in English: code, comments, commit messages, and docs.
+- Write code, comments, commit messages, branch names, and docs in English.
+- Write PR titles, descriptions, and review comments in Spanish, following `.github/pull_request_template.md`.
+- Use the Node version in `.nvmrc`.
 - Commits follow [Conventional Commits](https://www.conventionalcommits.org/) and stay short: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`.
 - Branch names: `feature/<name>`, `fix/<name>`, `chore/<name>`.
 - Code style is enforced by Prettier (single quotes, semicolons) — don't fight it, run `pnpm format`.
