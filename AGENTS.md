@@ -1,4 +1,4 @@
-This is an Expo/React Native mobile application. Prioritize mobile-first patterns, performance, and cross-platform compatibility.
+This is PlayLoop, an Expo/React Native mobile app to organize your games, decide what to play, and find people to play with. Prioritize mobile-first patterns, performance, and cross-platform compatibility. A web version is a future goal, so prefer libraries that also work on web (`pnpm web`).
 
 ## Expo has changed — do not trust your training data
 
@@ -10,18 +10,21 @@ Expo ships breaking changes every SDK release. APIs you remember are likely rena
 
 ## Commands
 
-Use `bunx` instead of `npx` if the project uses bun (`bun.lock` present).
+This project uses **pnpm**. Never use `npm`, `yarn`, or `bun`, and never commit a `package-lock.json`.
 
 ```bash
-npx expo install <package>  # ALWAYS use instead of npm/yarn/pnpm/bun add — resolves SDK-compatible versions
-npx expo start              # start the dev server
-npx expo lint               # lint
-npx tsc --noEmit            # typecheck
-npx expo-doctor             # diagnose dependency and config issues
-npx expo install --fix      # fix incompatible package versions
+pnpm expo install <package>                # ALWAYS use instead of pnpm add — resolves SDK-compatible versions
+pnpm expo install <package> -- --save-dev  # dev dependency
+pnpm start                                 # start the dev server
+pnpm lint                                  # lint (ESLint)
+pnpm format                                # format (Prettier)
+pnpm format:check                          # check formatting
+pnpm exec tsc --noEmit                     # typecheck
+pnpm dlx expo-doctor                       # diagnose dependency and config issues
+pnpm expo install --fix                    # fix incompatible package versions
 ```
 
-Run lint and typecheck before declaring any task done.
+Run `pnpm lint`, `pnpm format:check`, and `pnpm exec tsc --noEmit` before declaring any task done.
 
 ## Navigation & Routing
 
@@ -31,11 +34,18 @@ Run lint and typecheck before declaring any task done.
 
 ## Building with EAS
 
-Use EAS to build, sign, and submit the app in the cloud (`eas build`, `eas submit`) and to ship over-the-air updates (`eas update`) — no local Xcode or Android Studio required. Run EAS CLI as `bunx eas-cli <command>` in Bun projects, or `npx eas-cli@latest <command>` otherwise; substitute that for bare `eas` in docs examples.
+Use EAS to build, sign, and submit the app in the cloud (`eas build`, `eas submit`) and to ship over-the-air updates (`eas update`) — no local Xcode or Android Studio required. Run EAS CLI as `pnpm dlx eas-cli@latest <command>`; substitute that for bare `eas` in docs examples.
 Docs: https://docs.expo.dev/eas/index.md
+
+## Conventions
+
+- Write everything in the repo in English: code, comments, commit messages, and docs.
+- Commits follow [Conventional Commits](https://www.conventionalcommits.org/) and stay short: `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`.
+- Branch names: `feature/<name>`, `fix/<name>`, `chore/<name>`.
+- Code style is enforced by Prettier (single quotes, semicolons) — don't fight it, run `pnpm format`.
 
 ## Rules
 
 - If `ios/` and `android/` directories do not exist, they are generated (Continuous Native Generation). Never create or edit them by hand — configure native behavior in `app.json` and config plugins.
-- Expo Go only includes its bundled native modules. After adding a library with native code, the app needs a development build: `npx expo run:ios|android` locally, or `eas build --profile development`.
+- Expo Go only includes its bundled native modules. After adding a library with native code, the app needs a development build: `pnpm expo run:ios|android` locally, or `eas build --profile development`.
 - Prefer recommended Expo modules over third-party libraries, and check your available skills before adding dependencies. Docs: https://docs.expo.dev/versions/latest/index.md
