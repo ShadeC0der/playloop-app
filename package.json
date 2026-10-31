@@ -39,5 +39,6 @@
     "web": "expo start --web",
     "lint": "expo lint"
   },
-  "private": true
+  "private": true,
+  "packageManager": "pnpm@12.16.1"
 }
