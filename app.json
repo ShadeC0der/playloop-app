@@ -1,16 +1,18 @@
 {
   "expo": {
-    "name": "playloop-app",
-    "slug": "playloop-app",
+    "name": "PlayLoop",
+    "slug": "playloop",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "playloopapp",
+    "scheme": "playloop",
     "userInterfaceStyle": "automatic",
     "ios": {
+      "bundleIdentifier": "com.playloop.app",
       "icon": "./assets/expo.icon"
     },
     "android": {
+      "package": "com.playloop.app",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
